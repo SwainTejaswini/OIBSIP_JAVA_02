@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz</title>
+</head>
+<body>
+    <h1 style="text-align: center;">MCQ Quiz</h1>
+
+    <form id="quizForm" action="QuizServlet" method="post"style="font-size-adjust: 2;">
+        <!-- MCQ Questions and Options -->
+        <div>
+            <p>Question 1: What is the capital of France?</p>
+            <input type="radio" name="q1" value="Paris"> Paris<br>
+            <input type="radio" name="q1" value="Berlin"> Berlin<br>
+            <input type="radio" name="q1" value="London"> London<br>
+        </div>
+
+        <div>
+            <p>Question 2: What is the largest planet in our solar system?</p>
+            <input type="radio" name="q2" value="Earth"> Earth<br>
+            <input type="radio" name="q2" value="Jupiter"> Jupiter<br>
+            <input type="radio" name="q2" value="Mars"> Mars<br>
+        </div>
+        <div>
+            <p>Question 3: What is the largest planet in our solar system?</p>
+            <input type="radio" name="q3" value="Earth"> Earth<br>
+            <input type="radio" name="q3" value="Jupiter"> Jupiter<br>
+            <input type="radio" name="q3" value="Mars"> Mars<br>
+        </div>
+        <div>
+            <p>Question 4: What is the largest planet in our solar system?</p>
+            <input type="radio" name="q4" value="Earth"> Earth<br>
+            <input type="radio" name="q4" value="Jupiter"> Jupiter<br>
+            <input type="radio" name="q4" value="Mars"> Mars<br>
+        </div>
+        <div>
+            <p>Question 5: What is the largest planet in our solar system?</p>
+            <input type="radio" name="q5" value="Earth"> Earth<br>
+            <input type="radio" name="q5" value="Jupiter"> Jupiter<br>
+            <input type="radio" name="q5" value="Mars"> Mars<br>
+        </div>
+        <div>
+            <p id="timer">Time Remaining: <span id="time">60</span> seconds</p>
+        </div>
+        <div>
+            <input type="submit" value="Submit Answers">
+        </div>
+    </form>
+
+    <script>
+        let timeRemaining = 60;
+        let timerInterval = setInterval(updateTimer, 1000);
+
+        function updateTimer() {
+            timeRemaining--;
+            document.getElementById("time").innerText = timeRemaining;
+
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                // Auto-submit the form after 60 seconds
+                document.getElementById("quizForm").submit();
+            }
+        }
+    </script>
+</body>
+</html>
